@@ -12,9 +12,11 @@ export class Department implements IComputeAllocation {
     this.employeeLength = 0;
   }
 
-  addEmployee(employee: Employee): void {
-    this.employees[employee.id] = employee;
-    this.employeeLength += 1;
+  addEmployees(employees: Employee[]): void {
+    employees.forEach(employee => {
+      this.employees[employee.id] = employee;
+      this.employeeLength += 1;
+    });
   }
 
   removeEmployee(employeeID: string): void {
