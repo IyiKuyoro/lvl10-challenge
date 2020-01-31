@@ -47,13 +47,13 @@ describe('Manager', () => {
   it('should compute total allocation', () => {
     const employee1 = new Developer('John', 'Doe');
     const employee2 = new Developer('Nick', 'Fin');
-    const employee3 = new Developer('Steve', 'Blanc');
+    const employee3 = new QATester('Steve', 'Blanc');
 
     manager.addSubordinates([employee1]);
     manager.addSubordinates([employee2]);
     manager.addSubordinates([employee3]);
 
-    expect(manager.computeTotalAllocation()).toEqual(37000);
+    expect(manager.getTotalAllocation()).toEqual(37000);
   });
 
   it('should compute total allocation more than 2 levels deep', () => {
@@ -71,6 +71,6 @@ describe('Manager', () => {
 
     manager.addSubordinates([employee7]);
 
-    expect(manager.computeTotalAllocation(3)).toEqual(132000);
+    expect(manager.getTotalAllocation()).toEqual(132000);
   });
 });

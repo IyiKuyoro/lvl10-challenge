@@ -11,11 +11,13 @@ export class Employee {
   firstName: string;
   lastName: string;
   employeeType: EmployeeType;
+  allocation: number;
 
-  constructor(firstName: string, lastName: string, type: EmployeeType) {
+  constructor(firstName: string, lastName: string, type: EmployeeType, allocation: number) {
     this.id = uniqid();
     this.firstName = firstName;
     this.lastName = lastName;
     this.employeeType = type;
+    this.allocation = allocation;
   }
 }

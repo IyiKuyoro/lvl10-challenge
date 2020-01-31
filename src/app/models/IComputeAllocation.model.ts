@@ -1,3 +1,4 @@
 export interface IComputeAllocation {
-  computeTotalAllocation: (depth: number) => number;
+  allocationTotal: number;
+  getTotalAllocation: (depth: number) => number;
 }

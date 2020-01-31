@@ -4,7 +4,7 @@ describe('Employee', () => {
   let employee: Employee;
 
   beforeAll(() => {
-    employee = new Employee('John', 'Doe', EmployeeType.D);
+    employee = new Employee('John', 'Doe', EmployeeType.D, 1000);
   });
 
   it('should have type developer', () => {
