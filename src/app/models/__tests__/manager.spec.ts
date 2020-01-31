@@ -25,23 +25,23 @@ describe('Manager', () => {
   it('should add subordinates', () => {
     const employee = new Developer('John', 'Doe');
 
-    manager.addSubordinates([employee]);
+    manager.addEmployees([employee]);
 
-    expect(manager.subordinatesLength).toEqual(1);
-    expect(manager.subordinates[employee.id].firstName).toEqual('John');
+    expect(manager.employeeLength).toEqual(1);
+    expect(manager.employees[employee.id].firstName).toEqual('John');
   });
 
   it('should remove employee', () => {
     const employee1 = new Developer('John', 'Doe');
     const employee2 = new Developer('Nick', 'Fin');
 
-    manager.addSubordinates([employee1]);
-    manager.addSubordinates([employee2]);
+    manager.addEmployees([employee1]);
+    manager.addEmployees([employee2]);
 
     manager.removeEmployee(employee1.id);
 
-    expect(manager.subordinatesLength).toEqual(1);
-    expect(manager.subordinates[employee1.id]).toEqual(undefined);
+    expect(manager.employeeLength).toEqual(1);
+    expect(manager.employees[employee1.id]).toEqual(undefined);
   });
 
   it('should compute total allocation', () => {
@@ -49,9 +49,9 @@ describe('Manager', () => {
     const employee2 = new Developer('Nick', 'Fin');
     const employee3 = new QATester('Steve', 'Blanc');
 
-    manager.addSubordinates([employee1]);
-    manager.addSubordinates([employee2]);
-    manager.addSubordinates([employee3]);
+    manager.addEmployees([employee1]);
+    manager.addEmployees([employee2]);
+    manager.addEmployees([employee3]);
 
     expect(manager.getTotalAllocation()).toEqual(37000);
   });
@@ -65,11 +65,11 @@ describe('Manager', () => {
     const employee6 = new Manager('Jack', 'Woods');
     const employee7 = new Manager('James', 'Foo');
 
-    employee6.addSubordinates([employee4]);
-    employee5.addSubordinates([employee1, employee2, employee3, employee6]);
-    employee7.addSubordinates([employee5]);
+    employee6.addEmployees([employee4]);
+    employee5.addEmployees([employee1, employee2, employee3, employee6]);
+    employee7.addEmployees([employee5]);
 
-    manager.addSubordinates([employee7]);
+    manager.addEmployees([employee7]);
 
     expect(manager.getTotalAllocation()).toEqual(132000);
   });

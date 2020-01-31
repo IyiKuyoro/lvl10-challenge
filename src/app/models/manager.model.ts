@@ -1,42 +1,29 @@
-import { Employee, EmployeeType } from './employee.model';
-import { IComputeAllocation } from './IComputeAllocation.model';
+import uniqid from 'uniqid';
 
-export class Manager extends Employee implements IComputeAllocation {
-  subordinates: {[key: string]: Employee};
-  subordinatesLength: number;
+import { IEmployee, EmployeeType, EmployeeAllocation } from './employee.model';
+import { IComputeAllocation } from './IComputeAllocation.model';
+import { EmployeeGroup } from './employeeGroup.model';
+
+export class Manager extends EmployeeGroup implements IEmployee, IComputeAllocation {
+  id: string;
+  firstName: string;
+  lastName: string;
+  employeeType: EmployeeType;
+  allocation: number;
   allocationTotal: number;
 
   constructor(firstName: string, lastName: string) {
-    super(firstName, lastName, EmployeeType.M, 30000);
-    this.subordinates = {};
-    this.subordinatesLength = 0;
-    this.allocationTotal = 30000;
+    super();
+
+    this.id = uniqid();
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.employeeType = EmployeeType.M;
+    this.allocation = EmployeeAllocation.M;
+    this.allocationTotal = this.allocation;
   }
 
-  addSubordinates(employees: Employee[]): void {
-    employees.forEach((employee) => {
-      this.subordinates[employee.id] = employee;
-      this.subordinatesLength += 1;
-      if (employee.employeeType !== EmployeeType.M) {
-        this.computeTotalAllocation(employee.allocation);
-      }
-    });
-  }
-
-  removeEmployee(employeeID: string): void {
-    const employee = this.subordinates[employeeID];
-
-    if (employee) {
-      delete this.subordinates[employeeID];
-
-      if (employee.employeeType !== EmployeeType.M) {
-        this.computeTotalAllocation(employee.allocation, false);
-      }
-      this.subordinatesLength -= 1;
-    }
-  }
-
-  private computeTotalAllocation(allocation: number, add: boolean = true): void {
+  computeTotalAllocation(allocation: number, add: boolean = true): void {
     if (add) {
       this.allocationTotal += allocation;
     } else {
@@ -47,8 +34,8 @@ export class Manager extends Employee implements IComputeAllocation {
   getTotalAllocation(): number {
     let total = this.allocationTotal;
 
-    for (const id of Object.keys(this.subordinates)) {
-      const subordinate: any = this.subordinates[id];
+    for (const id of Object.keys(this.employees)) {
+      const subordinate: any = this.employees[id];
 
       if (subordinate.employeeType === EmployeeType.M) {
         total += subordinate.getTotalAllocation();

@@ -1,7 +1,18 @@
-import { Employee, EmployeeType } from './employee.model';
+import uniqid from 'uniqid';
+import { IEmployee, EmployeeType, EmployeeAllocation } from './employee.model';
 
-export class Developer extends Employee {
+export class Developer implements IEmployee {
+  id: string;
+  firstName: string;
+  lastName: string;
+  employeeType: EmployeeType;
+  allocation: number;
+
   constructor(firstName: string, lastName: string) {
-    super(firstName, lastName, EmployeeType.D, 1000);
+    this.id = uniqid();
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.employeeType = EmployeeType.D;
+    this.allocation = EmployeeAllocation.D;
   }
 }

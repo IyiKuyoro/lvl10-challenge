@@ -57,9 +57,9 @@ describe('Department', () => {
     const employee6 = new Manager('Jack', 'Woods');
     const employee7 = new Manager('James', 'Foo');
 
-    employee6.addSubordinates([employee4]);
-    employee5.addSubordinates([employee1, employee2, employee3, employee6]);
-    employee7.addSubordinates([employee5]);
+    employee6.addEmployees([employee4]);
+    employee5.addEmployees([employee1, employee2, employee3, employee6]);
+    employee7.addEmployees([employee5]);
 
     department.addEmployees([employee7]);
 
@@ -75,9 +75,9 @@ describe('Department', () => {
     const employee6 = new Manager('Jack', 'Woods');
     const employee7 = new Manager('James', 'Foo');
 
-    employee6.addSubordinates([employee4]);
-    employee5.addSubordinates([employee1, employee2, employee3, employee6]);
-    employee7.addSubordinates([employee5]);
+    employee6.addEmployees([employee4]);
+    employee5.addEmployees([employee1, employee2, employee3, employee6]);
+    employee7.addEmployees([employee5]);
 
     department.addEmployees([employee7]);
 

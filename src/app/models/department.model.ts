@@ -1,43 +1,19 @@
-import { Employee, EmployeeType } from './employee.model';
+import { EmployeeType } from './employee.model';
+import { EmployeeGroup } from './employeeGroup.model';
 import { IComputeAllocation } from './IComputeAllocation.model';
 
-export class Department implements IComputeAllocation {
+export class Department extends EmployeeGroup implements IComputeAllocation {
   name: string;
-  employees: {[key: string]: Employee};
-  employeeLength: number;
   allocationTotal: number;
 
   constructor(name: string) {
+    super();
+
     this.name = name;
-    this.employees = {};
-    this.employeeLength = 0;
     this.allocationTotal = 0;
   }
 
-  addEmployees(employees: Employee[]): void {
-    employees.forEach(employee => {
-      this.employees[employee.id] = employee;
-      this.employeeLength += 1;
-      if (employee.employeeType !== EmployeeType.M) {
-        this.computeTotalAllocation(employee.allocation);
-      }
-    });
-  }
-
-  removeEmployee(employeeID: string): void {
-    const employee = this.employees[employeeID];
-
-    if (employee) {
-      delete this.employees[employeeID];
-
-      if (employee.employeeType !== EmployeeType.M) {
-        this.computeTotalAllocation(employee.allocation, false);
-      }
-      this.employeeLength -= 1;
-    }
-  }
-
-  private computeTotalAllocation(allocation: number, add: boolean = true): void {
+  computeTotalAllocation(allocation: number, add: boolean = true): void {
     if (add) {
       this.allocationTotal += allocation;
     } else {
