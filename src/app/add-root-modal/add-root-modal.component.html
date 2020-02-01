@@ -1,30 +1,54 @@
 <h2 class="modal-title">Add {{rootType}}</h2>
-<form [hidden]="rootType === 'Department'">
+<form [formGroup]="managerForm" [hidden]="rootType === 'Department'">
   <div class="input-group">
     <label for="first-name" class="input-label">
       First Name
-      <input id="first-name" type="text" class="input-field" />
+      <input
+        formControlName="firstName" id="first-name"
+        type="text" class="input-field"
+        [ngClass]="{'input-field-error': isFirstNameValid()}"
+      />
     </label>
-    <em class="error-tag">Required</em>
+    <em
+      class="error-tag"
+      [ngClass]="{'et-show': isFirstNameValid()}"
+    >error</em>
   </div>
   <div class="input-group">
     <label for="last-name" class="input-label">
       Last Name
-      <input id="last-name" type="text" class="input-field" />
+      <input
+        formControlName="lastName" id="last-name"
+        type="text" class="input-field"
+        [ngClass]="{'input-field-error': isLastNameValid()}"
+      />
     </label>
-    <em class="error-tag">Required</em>
+    <em
+      class="error-tag"
+      [ngClass]="{'et-show': isLastNameValid()}"
+    >
+      error
+    </em>
   </div>
   <div class="btn-wrapper">
     <button class="create-btn">Create</button>
   </div>
 </form>
-<form [hidden]="rootType === 'Manager'">
+<form [formGroup]="departmentForm" [hidden]="rootType === 'Manager'">
   <div class="input-group">
     <label for="dept-name" class="input-label">
       Name
-      <input id="dept-name" type="text" class="input-field" />
+      <input
+        formControlName="departmentName"
+        id="dept-name" type="text"
+        class="input-field"
+        [ngClass]="{'input-field-error': isDepartmentNameValid()}"
+      />
     </label>
-    <em class="error-tag">Required</em>
+    <em
+      class="error-tag"
+      [ngClass]="{'et-show': isDepartmentNameValid()}"
+    >error</em>
   </div>
   <div class="btn-wrapper">
     <button class="create-btn">Create</button>

@@ -24,12 +24,29 @@
   text-indent: 10px;
 }
 
+.input-field-error {
+  background-color: rgb(255, 146, 146);
+}
+
 .error-tag {
   position: absolute;
   top: 0;
   right: 0;
   color: red;
   font-weight: 100;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition:
+    opacity 200ms linear;
+  -moz-transition:
+    opacity 200ms linear;
+  transition:
+    opacity 200ms linear;
+}
+
+.et-show {
+  visibility: visible;
+  opacity: 1;
 }
 
 .create-btn {
