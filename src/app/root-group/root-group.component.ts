@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { AllocationService } from '../services/allocation.service';
 import { EmployeeType } from '../models/employee.model';
-import { EmployeeGroup } from '../models/employeeGroup.model';
 import { AddEmployeeModalComponent } from '../add-employee-modal/add-employee-modal.component';
 
 @Component({
@@ -38,7 +37,7 @@ export class RootGroupComponent implements OnInit {
     return false;
   }
 
-  getRootGroup(): EmployeeGroup {
+  getRootGroup(): any {
     return this.allocationService.rootGroup;
   }
 

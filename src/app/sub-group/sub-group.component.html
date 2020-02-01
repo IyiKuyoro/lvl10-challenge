@@ -1,5 +1,11 @@
-<tr>
-  <td>{{employee.firstName}} {{employee.lastName}}</td>
-  <td>{{employee.employeeType}}</td>
-  <td>{{employee.employeeType === 'Manager' ? employee.getTotalAllocation() : employee.allocation}}</td>
-</tr>
+<span>{{employee.firstName}} {{employee.lastName}}</span>
+<span>{{employee.employeeType}}</span>
+<span>{{employee.employeeType === 'manager' ? employee.getTotalAllocation() : employee.allocation}}</span>
+<div app-sub-group
+  *ngFor="let e of employee.employees | keyvalue"
+  [employee]="e.value"
+>
+</div>
+<button *ngIf="employee.employeeType === 'manager'" (click)="openModal()" class="add-btn" aria-label="add new employee">
+  <fa-icon [icon]="plus"></fa-icon>
+</button>

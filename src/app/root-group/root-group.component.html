@@ -1,17 +1,19 @@
 <div class="table-wrapper">
-  <table class="root-group">
-    <tr>
-      <th>{{getRootGroupName()}}s' allocations</th>
-    </tr>
-    <app-sub-group *ngIf="isRootGroupManager(); else departmentGroup" [employee]="getRootGroup()"></app-sub-group>
+  <section class="root-group">
+    <h1 class="table-header">{{getRootGroupName()}}s' allocations</h1>
+    <div app-sub-group
+      *ngIf="isRootGroupManager(); else departmentGroup"
+      [employee]="getRootGroup()"
+    >
+  </div>
     <ng-template #departmentGroup>
-      <app-sub-group
+      <div app-sub-group
         *ngFor="let employee of getRootGroup().employees | keyvalue"
         [employee]="employee.value"
       >
-      </app-sub-group>
+    </div>
     </ng-template>
-  </table>
+  </section>
   <div class="btn-wrapper" *ngIf="!isRootGroupManager()">
     <button (click)="openModal()" class="add-btn" aria-label="add new employee">
       <fa-icon [icon]="plus"></fa-icon>

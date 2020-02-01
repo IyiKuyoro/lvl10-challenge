@@ -11,7 +11,7 @@ import { IEmployee } from '../models/employee.model';
 
 interface DialogData {
   rootSave: boolean;
-  saveLocation: number;
+  manager: Manager;
 }
 
 @Component({
@@ -68,11 +68,11 @@ export class AddEmployeeModalComponent implements OnInit {
     this.saveEmployee(employee);
   }
 
-  saveEmployee(employee: IEmployee): void {
+  saveEmployee(newEmployee: IEmployee): void {
     if (this.data.rootSave) {
-      this.allocationService.rootGroup.addEmployees([employee]);
+      this.allocationService.rootGroup.addEmployees([newEmployee]);
     } else {
-      // Todo
+      this.data.manager.addEmployees([newEmployee]);
     }
     this.closeDialog();
   }
