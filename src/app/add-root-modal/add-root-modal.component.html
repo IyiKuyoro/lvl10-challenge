@@ -1,1 +1,40 @@
-<p>add-root-modal works!</p>
+<h2 class="modal-title">Add {{rootType}}</h2>
+<form [hidden]="rootType === 'Department'">
+  <div class="input-group">
+    <label for="first-name" class="input-label">
+      First Name
+      <input id="first-name" type="text" class="input-field" />
+    </label>
+    <em class="error-tag">Required</em>
+  </div>
+  <div class="input-group">
+    <label for="last-name" class="input-label">
+      Last Name
+      <input id="last-name" type="text" class="input-field" />
+    </label>
+    <em class="error-tag">Required</em>
+  </div>
+  <div class="btn-wrapper">
+    <button class="create-btn">Create</button>
+  </div>
+</form>
+<form [hidden]="rootType === 'Manager'">
+  <div class="input-group">
+    <label for="dept-name" class="input-label">
+      Name
+      <input id="dept-name" type="text" class="input-field" />
+    </label>
+    <em class="error-tag">Required</em>
+  </div>
+  <div class="btn-wrapper">
+    <button class="create-btn">Create</button>
+  </div>
+</form>
+<div class="btn-wrapper">
+  <button
+    class="switch-btn"
+    (click)="switchRootType()"
+  >
+    add a {{rootType === 'Manager' ? 'Department' : 'Manager'}} instead
+  </button>
+</div>
