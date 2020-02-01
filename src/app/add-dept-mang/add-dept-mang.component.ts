@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-dept-mang',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-dept-mang.component.scss']
 })
 export class AddDeptMangComponent implements OnInit {
+  plus = faPlus;
 
   constructor() { }
 
