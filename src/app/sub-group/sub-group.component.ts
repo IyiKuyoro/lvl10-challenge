@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 
-import { IEmployee } from '../models/employee.model';
+import { IEmployee, EmployeeType } from '../models/employee.model';
 import { Manager } from '../models/manager.model';
 import { AddEmployeeModalComponent } from '../add-employee-modal/add-employee-modal.component';
 
@@ -13,7 +13,10 @@ import { AddEmployeeModalComponent } from '../add-employee-modal/add-employee-mo
 })
 export class SubGroupComponent implements OnInit {
   plus = faPlus;
+  minus = faMinus;
   @Input() employee: IEmployee | Manager | any;
+  @Input() isRootManager: boolean;
+  @Output() removeEmployee = new EventEmitter();
   private el: HTMLElement;
 
   constructor(
@@ -37,4 +40,13 @@ export class SubGroupComponent implements OnInit {
     });
   }
 
+  handleRemoveEmployee(id: number): void {
+    this.removeEmployee.emit(id.toString());
+  }
+
+  removeSubordinate(id: string): void {
+    if (this.employee.employeeType === EmployeeType.M) {
+      this.employee.removeEmployee(parseInt(id));
+    }
+  }
 }

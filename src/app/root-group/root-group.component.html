@@ -1,15 +1,19 @@
 <div class="table-wrapper">
   <section class="root-group">
-    <h1 class="table-header">{{getRootGroupName()}}s' allocations</h1>
+    <h1 class="table-header">{{getRootGroupName()}}'s Allocations</h1>
     <div app-sub-group
+      class="group"
       *ngIf="isRootGroupManager(); else departmentGroup"
       [employee]="getRootGroup()"
+      [isRootManager]="isRootGroupManager()"
     >
   </div>
     <ng-template #departmentGroup>
       <div app-sub-group
+        class="group"
         *ngFor="let employee of getRootGroup().employees | keyvalue"
         [employee]="employee.value"
+        (removeEmployee)="removeSubordinate($event)"
       >
     </div>
     </ng-template>

@@ -1,11 +1,30 @@
-<span>{{employee.firstName}} {{employee.lastName}}</span>
-<span>{{employee.employeeType}}</span>
-<span>{{employee.employeeType === 'manager' ? employee.getTotalAllocation() : employee.allocation}}</span>
+<div class="cols-group">
+  <span class="col-1">
+    {{employee.firstName}} {{employee.lastName}}
+    <button
+      class='add-btn'
+      *ngIf="employee.employeeType === 'manager'"
+      (click)="openModal()" class="btn add-btn"
+      aria-label="add new employee"
+    >
+      <fa-icon [icon]="plus"></fa-icon>
+    </button>
+    <button
+      class='remove-btn'
+      (click)="handleRemoveEmployee(employee.id)" class="btn remove-btn"
+      aria-label="add new employee"
+      *ngIf="!isRootManager"
+    >
+      <fa-icon [icon]="minus"></fa-icon>
+    </button>
+  </span>
+  <span class="col-2">{{employee.employeeType}}</span>
+  <span class="col-3">{{employee.employeeType === 'manager' ? employee.getTotalAllocation() : employee.allocation}}</span>
+</div>
 <div app-sub-group
+  class="group"
   *ngFor="let e of employee.employees | keyvalue"
   [employee]="e.value"
+  (removeEmployee)="removeSubordinate($event)"
 >
 </div>
-<button *ngIf="employee.employeeType === 'manager'" (click)="openModal()" class="add-btn" aria-label="add new employee">
-  <fa-icon [icon]="plus"></fa-icon>
-</button>

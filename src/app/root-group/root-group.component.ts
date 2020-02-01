@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AllocationService } from '../services/allocation.service';
@@ -13,6 +13,7 @@ import { AddEmployeeModalComponent } from '../add-employee-modal/add-employee-mo
 })
 export class RootGroupComponent implements OnInit {
   plus = faPlus;
+  minus = faMinus;
 
   constructor(
     private allocationService: AllocationService,
@@ -49,5 +50,10 @@ export class RootGroupComponent implements OnInit {
         rootSave: true,
       },
     });
+  }
+
+  removeSubordinate(id: string): void {
+    const group: any = this.allocationService.rootGroup;
+    group.removeEmployee(parseInt(id));
   }
 }

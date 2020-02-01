@@ -1,0 +1,46 @@
+.cols-group {
+  display: flex;
+  width: 100%;
+}
+
+.group {
+  line-height: 40px;
+  min-height: 40px;
+  height: fit-content;
+  display: block;
+  -webkit-box-align: center;
+  font-weight: 100;
+  padding: 0 1%;
+  width: 99%;
+}
+
+.col-1 {
+  width: 60%;
+  text-align: left;
+}
+
+.col-2 {
+  width: 20%;
+  text-align: center;
+}
+
+.col-3 {
+  width: 20%;
+  text-align: right;
+}
+
+.btn {
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 22.5px;
+  margin-right: auto;
+}
+
+.add-btn {
+  background-color: #D0FFBA;
+}
+
+.remove-btn {
+  background-color: #FFBABA;
+}

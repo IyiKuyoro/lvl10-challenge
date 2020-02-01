@@ -32,3 +32,32 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button:hover {
   cursor: pointer;
 }
+
+.mat-select {
+  display: inline-block;
+  width: 100%;
+  outline: 0;
+  height: 45px;
+  border-radius: 2px;
+  background-color: #f4f4f4;
+}
+
+.mat-select-trigger {
+  display: inline-table;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.mat-select-value {
+  display: table-cell;
+  max-width: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 40px;
+  text-indent: 10px;
+  font-weight: 300;
+}

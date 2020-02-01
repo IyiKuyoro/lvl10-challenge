@@ -30,10 +30,10 @@
       error
     </em>
   </div>
-  <div>
-    <label>
+  <div class="input-group">
+    <label for="type" class="input-label">
       Employee Type
-      <mat-select formControlName="employeeType">
+      <mat-select id="type" formControlName="employeeType">
         <mat-option *ngFor="let type of employeeTypes" [value]="type">
           {{type}}
         </mat-option>
