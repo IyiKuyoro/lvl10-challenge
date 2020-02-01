@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { AllocationService } from './services/allocation.service';
 import { AddRootModalComponent } from './add-root-modal/add-root-modal.component';
 import { RootGroupComponent } from './root-group/root-group.component';
 import { SubGroupComponent } from './sub-group/sub-group.component';
+import { AddEmployeeModalComponent } from './add-employee-modal/add-employee-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { SubGroupComponent } from './sub-group/sub-group.component';
     AddRootModalComponent,
     RootGroupComponent,
     SubGroupComponent,
+    AddEmployeeModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { SubGroupComponent } from './sub-group/sub-group.component';
     BrowserAnimationsModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatSelectModule,
   ],
   providers: [
     AllocationService,
@@ -38,6 +42,7 @@ import { SubGroupComponent } from './sub-group/sub-group.component';
   bootstrap: [AppComponent],
   entryComponents: [
     AddRootModalComponent,
+    AddEmployeeModalComponent,
   ],
 })
 export class AppModule {

@@ -12,4 +12,9 @@
       </app-sub-group>
     </ng-template>
   </table>
+  <div class="btn-wrapper" *ngIf="!isRootGroupManager()">
+    <button (click)="openModal()" class="add-btn" aria-label="add new employee">
+      <fa-icon [icon]="plus"></fa-icon>
+    </button>
+  </div>
 </div>

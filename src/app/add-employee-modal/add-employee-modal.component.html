@@ -1,0 +1,51 @@
+<h2 class="modal-title">Add Employee</h2>
+<form [formGroup]="employeeForm">
+  <div class="input-group">
+    <label for="first-name" class="input-label">
+      First Name
+      <input
+        formControlName="firstName" id="first-name"
+        type="text" class="input-field"
+        [ngClass]="{'input-field-error': isFirstNameValid()}"
+      />
+    </label>
+    <em
+      class="error-tag"
+      [ngClass]="{'et-show': isFirstNameValid()}"
+    >error</em>
+  </div>
+  <div class="input-group">
+    <label for="last-name" class="input-label">
+      Last Name
+      <input
+        formControlName="lastName" id="last-name"
+        type="text" class="input-field"
+        [ngClass]="{'input-field-error': isLastNameValid()}"
+      />
+    </label>
+    <em
+      class="error-tag"
+      [ngClass]="{'et-show': isLastNameValid()}"
+    >
+      error
+    </em>
+  </div>
+  <div>
+    <label>
+      Employee Type
+      <mat-select formControlName="employeeType">
+        <mat-option *ngFor="let type of employeeTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </label>
+  </div>
+  <div class="btn-wrapper">
+    <button
+      class="create-btn"
+      (click)="createEmployee()"
+      [disabled]="employeeForm.invalid"
+      type="submit"
+    >Create</button>
+  </div>
+</form>
