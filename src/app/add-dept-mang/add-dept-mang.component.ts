@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import {MatDialog} from '@angular/material/dialog';
+
+import { AddRootModalComponent } from '../add-root-modal/add-root-modal.component';
 
 @Component({
   selector: 'app-add-dept-mang',
@@ -9,8 +12,16 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class AddDeptMangComponent implements OnInit {
   plus = faPlus;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddRootModalComponent, {
+      width: '90%',
+      maxWidth: '650px',
+      data: {},
+    });
   }
 }

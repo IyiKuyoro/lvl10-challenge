@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AddDeptMangComponent } from './add-dept-mang/add-dept-mang.component';
 import { AllocationService } from './services/allocation.service';
+import { AddRootModalComponent } from './add-root-modal/add-root-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AddDeptMangComponent,
+    AddRootModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,10 +27,12 @@ import { AllocationService } from './services/allocation.service';
   ],
   providers: [
     AllocationService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [],
+  entryComponents: [
+    AddRootModalComponent,
+  ],
 })
 export class AppModule {
 }
