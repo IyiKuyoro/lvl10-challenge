@@ -1,8 +1,8 @@
-import uniqid from 'uniqid';
+import { uniqid } from './__helpers__/uniqid';
 import { IEmployee, EmployeeType, EmployeeAllocation } from './employee.model';
 
 export class Developer implements IEmployee {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   employeeType: EmployeeType;

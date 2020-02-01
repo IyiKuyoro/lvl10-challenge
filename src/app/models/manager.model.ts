@@ -1,11 +1,10 @@
-import uniqid from 'uniqid';
-
+import { uniqid } from './__helpers__/uniqid';
 import { IEmployee, EmployeeType, EmployeeAllocation } from './employee.model';
 import { IComputeAllocation } from './IComputeAllocation.model';
 import { EmployeeGroup } from './employeeGroup.model';
 
 export class Manager extends EmployeeGroup implements IEmployee, IComputeAllocation {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   employeeType: EmployeeType;
