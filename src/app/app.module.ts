@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AddDeptMangComponent } from './add-dept-mang/add-dept-mang.component';
+import { AllocationService } from './services/allocation.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,11 @@ import { AddDeptMangComponent } from './add-dept-mang/add-dept-mang.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
-  providers: [],
+  providers: [
+    AllocationService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
