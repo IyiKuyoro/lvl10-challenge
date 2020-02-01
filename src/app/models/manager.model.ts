@@ -43,4 +43,8 @@ export class Manager extends EmployeeGroup implements IEmployee, IComputeAllocat
 
     return total;
   }
+
+  getName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 }

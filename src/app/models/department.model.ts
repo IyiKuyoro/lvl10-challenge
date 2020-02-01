@@ -34,4 +34,8 @@ export class Department extends EmployeeGroup implements IComputeAllocation {
 
     return total;
   }
+
+  getName(): string {
+    return this.name;
+  }
 }

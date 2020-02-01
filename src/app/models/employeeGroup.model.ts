@@ -33,4 +33,5 @@ export abstract class EmployeeGroup {
   }
 
   abstract computeTotalAllocation(allocation: number, add: boolean): void;
+  abstract getName(): string;
 }
