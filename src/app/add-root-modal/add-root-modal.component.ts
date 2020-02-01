@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+
+import { AllocationService } from '../services/allocation.service';
+import { Department } from '../models/department.model';
+import { Manager } from '../models/manager.model';
 
 @Component({
   selector: 'app-add-root-modal',
@@ -11,7 +16,10 @@ export class AddRootModalComponent implements OnInit {
   departmentForm: FormGroup;
   managerForm: FormGroup;
 
-  constructor() {
+  constructor(
+    public dialogRef: MatDialogRef<AddRootModalComponent>,
+    private allocationService: AllocationService,
+  ) {
     const firstName = new FormControl(null, [Validators.required, Validators.pattern(/^[A-Za-z'-]+$/)]);
     const lastName = new FormControl(null, [Validators.required, Validators.pattern(/^[A-Za-z'-]+$/)]);
     this.managerForm = new FormGroup({
@@ -47,5 +55,28 @@ export class AddRootModalComponent implements OnInit {
 
   isLastNameValid(): boolean {
     return this.managerForm.controls.lastName.invalid && this.managerForm.controls.lastName.touched;
+  }
+
+  createRootDepartment(): void {
+    const department = new Department(
+      this.departmentForm.controls.departmentName.value,
+    );
+
+    this.allocationService.createRoot(department);
+    this.closeDialog();
+  }
+
+  createRootManager(): void {
+    const manager = new Manager(
+      this.managerForm.controls.firstName.value,
+      this.managerForm.controls.lastName.value,
+    );
+
+    this.allocationService.createRoot(manager);
+    this.closeDialog();
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close();
   }
 }

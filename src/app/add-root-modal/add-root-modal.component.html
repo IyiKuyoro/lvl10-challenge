@@ -31,7 +31,12 @@
     </em>
   </div>
   <div class="btn-wrapper">
-    <button class="create-btn">Create</button>
+    <button
+      class="create-btn"
+      (click)="createRootManager()"
+      [disabled]="this.managerForm.invalid"
+      type="submit"
+    >Create</button>
   </div>
 </form>
 <form [formGroup]="departmentForm" [hidden]="rootType === 'Manager'">
@@ -51,7 +56,12 @@
     >error</em>
   </div>
   <div class="btn-wrapper">
-    <button class="create-btn">Create</button>
+    <button
+      class="create-btn"
+      (click)="createRootDepartment()"
+      [disabled]="this.departmentForm.invalid"
+      type="submit"
+    >Create</button>
   </div>
 </form>
 <div class="btn-wrapper">
