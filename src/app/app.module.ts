@@ -12,6 +12,7 @@ import { AddDeptMangComponent } from './add-dept-mang/add-dept-mang.component';
 import { AllocationService } from './services/allocation.service';
 import { AddRootModalComponent } from './add-root-modal/add-root-modal.component';
 import { RootGroupComponent } from './root-group/root-group.component';
+import { SubGroupComponent } from './sub-group/sub-group.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RootGroupComponent } from './root-group/root-group.component';
     AddDeptMangComponent,
     AddRootModalComponent,
     RootGroupComponent,
+    SubGroupComponent,
   ],
   imports: [
     BrowserModule,

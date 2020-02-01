@@ -3,8 +3,13 @@
     <tr>
       <th>{{getRootGroupName()}}s' allocations</th>
     </tr>
-    <!-- <tr *ngIf="isRootGroupManager()">
-
-    </tr> -->
+    <app-sub-group *ngIf="isRootGroupManager(); else departmentGroup" [employee]="getRootGroup()"></app-sub-group>
+    <ng-template #departmentGroup>
+      <app-sub-group
+        *ngFor="let employee of getRootGroup().employees | keyvalue"
+        [employee]="employee.value"
+      >
+      </app-sub-group>
+    </ng-template>
   </table>
 </div>

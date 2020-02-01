@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AllocationService } from '../services/allocation.service';
 import { EmployeeType } from '../models/employee.model';
+import { EmployeeGroup } from '../models/employeeGroup.model';
 
 @Component({
   selector: 'app-root-group',
@@ -21,10 +22,14 @@ export class RootGroupComponent implements OnInit {
   isRootGroupManager(): boolean {
     const group: any = this.allocationService.rootGroup;
 
-    if (group.type && group.type === EmployeeType.M) {
+    if (group.employeeType && group.employeeType === EmployeeType.M) {
       return true;
     }
 
     return false;
+  }
+
+  getRootGroup(): EmployeeGroup {
+    return this.allocationService.rootGroup;
   }
 }
