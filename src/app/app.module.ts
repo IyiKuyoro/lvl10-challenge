@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { AddDeptMangComponent } from './add-dept-mang/add-dept-mang.component';
 import { AllocationService } from './services/allocation.service';
 import { AddRootModalComponent } from './add-root-modal/add-root-modal.component';
+import { RootGroupComponent } from './root-group/root-group.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AddRootModalComponent } from './add-root-modal/add-root-modal.component
     HeaderComponent,
     AddDeptMangComponent,
     AddRootModalComponent,
+    RootGroupComponent,
   ],
   imports: [
     BrowserModule,
