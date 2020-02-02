@@ -46,7 +46,7 @@ export class SubGroupComponent implements OnInit {
 
   removeSubordinate(id: string): void {
     if (this.employee.employeeType === EmployeeType.M) {
-      this.employee.removeEmployee(parseInt(id));
+      this.employee.removeEmployee(id);
     }
   }
 }

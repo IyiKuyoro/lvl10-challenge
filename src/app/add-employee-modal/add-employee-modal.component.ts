@@ -24,7 +24,7 @@ export class AddEmployeeModalComponent implements OnInit {
   employeeForm: FormGroup;
 
   constructor(
-    public dialogRef: MatDialogRef<AddRootModalComponent>,
+    public dialogRef: MatDialogRef<AddEmployeeModalComponent>,
     private allocationService: AllocationService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {

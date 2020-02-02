@@ -1,3 +1,5 @@
-export function uniqid(): number {
-  return Date.now();
+import shortid from 'shortid';
+
+export function uniqid(): string {
+  return shortid.generate();
 }

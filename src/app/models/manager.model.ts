@@ -4,7 +4,7 @@ import { IComputeAllocation } from './IComputeAllocation.model';
 import { EmployeeGroup } from './employeeGroup.model';
 
 export class Manager extends EmployeeGroup implements IEmployee, IComputeAllocation {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   employeeType: EmployeeType;

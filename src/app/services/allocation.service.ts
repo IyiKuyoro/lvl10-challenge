@@ -22,6 +22,6 @@ export class AllocationService {
   }
 
   removeSubordinate(id: string): void {
-    this.rootGroup.removeEmployee(parseInt(id));
+    this.rootGroup.removeEmployee(id);
   }
 }

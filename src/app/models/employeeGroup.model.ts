@@ -19,7 +19,7 @@ export abstract class EmployeeGroup {
     });
   }
 
-  removeEmployee(employeeID: number): void {
+  removeEmployee(employeeID: string): void {
     const employee = this.employees[employeeID];
 
     if (employee) {

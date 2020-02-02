@@ -2,7 +2,7 @@ import { uniqid } from './__helpers__/uniqid';
 import { IEmployee, EmployeeType, EmployeeAllocation } from './employee.model';
 
 export class QATester implements IEmployee {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   employeeType: EmployeeType;

@@ -11,7 +11,7 @@ export enum EmployeeAllocation {
 }
 
 export interface IEmployee {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   employeeType: EmployeeType;
