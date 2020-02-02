@@ -1,14 +1,27 @@
 import { Injectable } from '@angular/core';
-import { EmployeeGroup } from '../models/employeeGroup.model';
+
+import { Department } from '../models/department.model';
+import { Manager } from '../models/manager.model';
 
 @Injectable({providedIn: 'root'})
 export class AllocationService {
-  rootGroup: EmployeeGroup;
+  rootGroup: Manager | Department;
+  rootGroupType: string;
 
   constructor() {
   }
 
-  createRoot(root: EmployeeGroup): void {
+  createRoot(root: Manager | Department): void {
     this.rootGroup = root;
+
+    if (this.rootGroup.hasOwnProperty('employeeType')) {
+      this.rootGroupType = 'manager';
+    } else {
+      this.rootGroupType = 'department';
+    }
+  }
+
+  removeSubordinate(id: string): void {
+    this.rootGroup.removeEmployee(parseInt(id));
   }
 }

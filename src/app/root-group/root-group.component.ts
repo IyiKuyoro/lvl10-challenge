@@ -3,7 +3,6 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AllocationService } from '../services/allocation.service';
-import { EmployeeType } from '../models/employee.model';
 import { AddEmployeeModalComponent } from '../add-employee-modal/add-employee-modal.component';
 
 @Component({
@@ -29,15 +28,11 @@ export class RootGroupComponent implements OnInit {
   }
 
   getTotalAllocation(): number {
-    const group: any = this.allocationService.rootGroup;
-
-    return group.getTotalAllocation();
+    return this.allocationService.rootGroup.getTotalAllocation();
   }
 
   isRootGroupManager(): boolean {
-    const group: any = this.allocationService.rootGroup;
-
-    if (group.employeeType && group.employeeType === EmployeeType.M) {
+    if (this.allocationService.rootGroupType === 'manager') {
       return true;
     }
 
@@ -59,7 +54,6 @@ export class RootGroupComponent implements OnInit {
   }
 
   removeSubordinate(id: string): void {
-    const group: any = this.allocationService.rootGroup;
-    group.removeEmployee(parseInt(id));
+    this.allocationService.removeSubordinate(id);
   }
 }
