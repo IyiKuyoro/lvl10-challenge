@@ -18,8 +18,10 @@
       <fa-icon [icon]="minus"></fa-icon>
     </button>
   </span>
-  <span class="col-2">{{employee.employeeType}}</span>
-  <span class="col-3">{{employee.employeeType === 'manager' ? employee.getTotalAllocation() : employee.allocation}}</span>
+  <span class="details">
+    <span class="col-2">{{employee.employeeType}}</span>
+    <span class="col-3">{{(employee.employeeType === 'manager' ? employee.getTotalAllocation() : employee.allocation) | currency : 'USD' }}</span>
+  </span>
 </div>
 <div app-sub-group
   class="group"
