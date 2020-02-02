@@ -28,6 +28,12 @@ export class RootGroupComponent implements OnInit {
     return this.allocationService.rootGroup.getName();
   }
 
+  getTotalAllocation(): number {
+    const group: any = this.allocationService.rootGroup;
+
+    return group.getTotalAllocation();
+  }
+
   isRootGroupManager(): boolean {
     const group: any = this.allocationService.rootGroup;
 

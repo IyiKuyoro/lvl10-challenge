@@ -1,10 +1,9 @@
 .table-wrapper {
   width: 100%;
-  height: calc(100% - 60px);
+  height: fit-content;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 30px;
 }
 
 .table-header {
@@ -12,13 +11,20 @@
   border-radius: 22.5px 22.5px 0 0;
   text-align: center;
   line-height: 45px;
-  margin-bottom: 0;
+  margin: 0;
+  font-size: 0.9em;
 }
 
 .root-group,
 .btn-wrapper {
   width: 90%;
   max-width: 1200px;
+}
+
+.root-group {
+  margin-top: 30px;
+  background-color: #F7F7F7;
+  border-radius: 22.5px;
 }
 
 .group {
@@ -38,4 +44,24 @@
   border: none;
   border-radius: 22.5px;
   margin-right: auto;
+  margin-top: 10px;
+}
+
+.total-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 40px;
+  border-radius: 20px;
+  align-items: center;
+  background-color: #C4C4C4;
+}
+
+.total-text {
+  font-size: 1.1em;
+  margin: 0 10px;
+  font-weight: 100;
 }
